@@ -14,7 +14,7 @@ This is the Octatrack's stack on the Syntakt ([machine recipe](../../../docs/MAC
 | --- | --- | --- |
 | Memory for modules | In review. On OS 1.42, #1411 lowers the stack by 128 KB to free `0x47fe0000`–`0x48000000`. That build ran on a unit, also through a sample reload, and the owner chose this route. One check remains before the 128 KB counts as free: fill the whole gap at boot, load samples, play, and read it back | #1411, [memory](README.md#memory-areas-and-budgets) |
 | Base | Boot probe only. It runs on a unit with OS 1.42 and keeps no code running after boot. The Syntakt is not in the shared linker table yet, so nothing builds it in the browser | [core](../../syntakt/core/README.md), [platform](../../../docs/SYNTAKT_OS_RESEARCH.md#8-platform-decision-brief) |
-| Hooks | None yet. The UI tick, key and encoder delivery, a SETTINGS menu row and the audio block are located and guarded in 1.40 and 1.42. The display's draw path, project load and save, and the sequencer step are still unknown | [hook sites](../../../docs/SYNTAKT_OS_RESEARCH.md#44-main-cpu-ui-audio-and-project-sites) |
+| Hooks | UI tick, key/encoder delivery, SETTINGS row, audio block, **display draw path** located and guarded in 1.40 and 1.42. Project load/save and sequencer step still unknown | [hook sites](../../../docs/SYNTAKT_OS_RESEARCH.md#44-main-cpu-ui-audio-and-project-sites) |
 | USB link | Not started. The plan is SysEx over the stock USB MIDI | [USB link](#usb-link) below |
 | Loading without a reflash | Not started | [porting the runtime loader](../../runtime/loader/README.md#porting-to-another-machine) |
 | Base updates over USB | Not started | [two-slot base](../../../docs/OCTATRACK_TWO_SLOT_BASE.md) |
